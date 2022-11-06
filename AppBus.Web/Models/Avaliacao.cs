@@ -15,6 +15,14 @@ namespace AppBus.Web.Models
     [Required, MaxLength(500), Column("DC_COMENTARIO")]
         public string? Comentario { get; set; }
 
+        public Usuario Usuario { get; set; }
+
+        public int UsuarioID { get; set; }
+        
+        public Onibus Onibus { get; set; }  
+        
+        public int OnibusId { get; set; }
+
 
     }
 }
