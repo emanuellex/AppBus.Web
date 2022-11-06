@@ -1,7 +1,16 @@
+using AppBus.Web.Persistencia;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//
+var connection = builder.Configuration.GetConnectionString("conexao");
+//
+builder.Services
+    .AddDbContext<BusContext>(o => o.UseSqlServer(connection));
 
 var app = builder.Build();
 

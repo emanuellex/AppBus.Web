@@ -25,6 +25,10 @@ namespace AppBus.Web.Models
         [Column("FL_ACESSIVEL")]
         public bool Acessivel  { get; set; }
 
+
+        //N:M
+        public IList<Avaliacao> Avaliacao { get; set; }
+
     }
 
     public enum Status

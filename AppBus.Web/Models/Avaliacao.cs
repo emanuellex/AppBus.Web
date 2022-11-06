@@ -17,8 +17,8 @@ namespace AppBus.Web.Models
 
         public Usuario Usuario { get; set; }
 
-        public int UsuarioID { get; set; }
-        
+        public int UsuarioId { get; set; }
+
         public Onibus Onibus { get; set; }  
         
         public int OnibusId { get; set; }
