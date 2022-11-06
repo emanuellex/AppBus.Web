@@ -29,6 +29,6 @@ namespace AppBus.Web.Models
 
     public enum Status
     {
-        Ativo, Desligado, Manutencao
+        Ativo, Desligado, [Display(Name = "Manutenção")] Manutencao
     }
 }

@@ -37,6 +37,6 @@ namespace AppBus.Web.Models
 
     public enum Bandeira
     {
-        Elo, Visa, Mastercard
+        Elo, Visa, Mastercard, Hipercard,[Display(Name = "America Express")] AmericaExpress
     }
 }
