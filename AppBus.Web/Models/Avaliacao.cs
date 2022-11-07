@@ -1,18 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
+
 
 namespace AppBus.Web.Models
 {
-    public class Avaliacao { 
+    public class Avaliacao {
 
+        [Column("DS_NOTA")]
+        public Nota Nota  { get; set; }
 
-    [Required, MaxLength(500), Column("NR_AVALIACAO")]
-    public string? Numero { get; set; }
-
-
-    [Required, MaxLength(500), Column("DC_COMENTARIO")]
+       [Required, MaxLength(500), Column("DC_COMENTARIO")]
         public string? Comentario { get; set; }
 
         public Usuario Usuario { get; set; }
@@ -24,5 +22,9 @@ namespace AppBus.Web.Models
         public int OnibusId { get; set; }
 
 
+    }
+    public enum Nota
+    {
+       [Display(Name ="1")] um, [Display(Name = "2")] dois, [Display(Name = "3")] tres, [Display(Name = "4")] quarto, [Display(Name = "5")] cinco
     }
 }

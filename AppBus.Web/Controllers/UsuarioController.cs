@@ -19,7 +19,6 @@ namespace AppBus.Web.Controllers
         {
             var lista = _context.Usuarios
                 .Where(u => u.Email.Contains(Pesquisa) || Pesquisa == null)
-                .Include(u => u.Pontua)
                 .ToList();
 
             return View(lista);
@@ -46,8 +45,7 @@ namespace AppBus.Web.Controllers
         public IActionResult Editar(int id)
         {
             var usuario = _context.Usuarios
-                .Include(u => u.Pontua)
-                .Where(u => u.Usuarioid == id)
+                .Where(u => u.UsuarioId == id)
                 .FirstOrDefault();
 
             return View(usuario);

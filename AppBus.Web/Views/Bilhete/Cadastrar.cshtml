@@ -1,0 +1,16 @@
+﻿@model Bilhete
+
+@{
+    ViewData["Title"] = "Cadastro de Bilhete";
+
+}
+
+<h1>Faça o cadastro do seu bilhete</h1>
+
+<form asp-action="cadastrar">
+
+    <partial name="_Form" />
+
+    <button class="btn btn-outline-success">Cadastrar</button>
+
+</form>

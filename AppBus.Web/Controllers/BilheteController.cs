@@ -1,15 +1,15 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using AppBus.Web.Models;
+using AppBus.Web.Persistencia;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppBus.Web.Controllers
 {
     public class BilheteController : Controller
     {
-        public class BilheteUnicoController : Controller
-        {
             public BusContext _context;
 
-            public BilheteUnicoController(BusContext context)
+            public BilheteController(BusContext context)
             {
                 _context = context;
             }

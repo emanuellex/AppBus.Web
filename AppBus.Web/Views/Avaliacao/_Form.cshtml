@@ -1,0 +1,13 @@
+﻿@model Avaliacao
+
+<div class="mb-3">
+        <label asp-for="Nota"></label>
+        <select asp-for="Nota" class="form-select"
+            asp-items="@Html.GetEnumSelectList<Nota>()">
+        <option>Selecione</option>
+    </select>
+    </div>
+    <div class="mb-3">
+    <label asp-for="Comentario"> </label>
+    <input asp-for="Comentario" class="form-control" />
+</div>

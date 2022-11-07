@@ -1,0 +1,22 @@
+﻿@model Bilhete
+
+
+<div class="mb-3">
+      <label asp-for="TipoBilhete"></label>
+        <select asp-for="TipoBilhete" class="form-select"
+            asp-items="@Html.GetEnumSelectList<Nota>()">
+        <option>Selecione</option>
+    </select>
+    </div>
+    <div class="mb-3">
+    <label asp-for="NumeroBilhete"> </label>
+    <input asp-for="NumeroBilhete" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="NomeTitular"> </label>
+    <input asp-for="NomeTitular" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Valor"> </label>
+    <input asp-for="Valor" class="form-control" />
+</div>

@@ -1,0 +1,29 @@
+﻿@model CartaoCredito
+
+<div class="mb-3">
+    <label asp-for="NumeroCartao"> </label>
+    <input asp-for="NumeroCartao" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="NomeTitular"> </label>
+    <input asp-for="NomeTitular" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="CVV"> </label>
+    <input asp-for="CVV" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Validade"> </label>
+    <input asp-for="Validade" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Bandeira"></label>
+    <select asp-for="Bandeira" class="form-select"
+            asp-items="@Html.GetEnumSelectList<Bandeira>()">
+        <option>Selecione</option>
+    </select>
+</div>
+<div class="mb-3">
+    <label asp-for="Documento"> </label>
+    <input asp-for="Documento" class="form-control" />
+</div>
