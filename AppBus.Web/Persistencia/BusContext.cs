@@ -10,6 +10,7 @@ namespace AppBus.Web.Persistencia
         public DbSet<CartaoCredito> Cartoes { get; set; }
         public DbSet<Bilhete> Bilhetes { get; set; }
         public DbSet<Avaliacao> Avaliacoes { get; set; }
+        public DbSet<TipoOnibus> Tipo { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
