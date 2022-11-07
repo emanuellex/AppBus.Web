@@ -1,4 +1,5 @@
-﻿using AppBus.Web.Persistencia;
+﻿using AppBus.Web.Models;
+using AppBus.Web.Persistencia;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppBus.Web.Controllers
@@ -16,6 +17,15 @@ namespace AppBus.Web.Controllers
             public IActionResult Cadastrar()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Cadastrar (Avaliacao avaliacao)
+        {
+            _context.Avaliacoes.Add(avaliacao);
+            _context.SaveChanges();
+            TempData["msg"] = "Sua avaliação cadastrada com sucesso";
+            return RedirectToAction("Cadastrar");
         }
     }
 }

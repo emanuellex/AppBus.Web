@@ -2,7 +2,7 @@
 
 namespace AppBus.Web.TagHelpers
 {
-    public class MenssageTagHelper : TagHelper
+    public class MensagemTagHelper : TagHelper
     {
         public string? Mensagem { get; set; }
 
