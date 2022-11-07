@@ -1,0 +1,29 @@
+﻿@model List<CartaoCredito>
+
+    @{
+        ViewData["Title"] = "Cartões de crédito";
+    }
+
+    <h1>Cartões de crédito cadastrados</h1>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Número</th>
+            <th>Titular</th>
+            <th>CPF</th>
+            <th>CVV</th>
+            <th>Validade</th>
+            <td>Bandeira</td>
+        </tr>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.NumeroCartao</td>
+                <td>@c.NomeTitular</td>
+                <td>@c.Documento</td>
+                <td>@c.CVV</td>
+                <td>@c.Validade</td>
+                <td>@c.Bandeira</td>
+            </tr>
+        }
+    </table>

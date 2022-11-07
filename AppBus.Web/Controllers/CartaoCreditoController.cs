@@ -28,6 +28,12 @@ namespace AppBus.Web.Controllers
             TempData["msg"] = "Seu cartão foi cadastrado com sucesso!";
             return RedirectToAction("Cadastrar");
         }
+        [HttpGet]
+        public IActionResult Index()
+        {
+            var lista = _context.Cartoes.ToList();
+            return View(lista);
+        }
     }
 }
-}
+

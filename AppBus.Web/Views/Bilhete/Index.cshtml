@@ -1,0 +1,25 @@
+﻿@model List<Bilhete>
+
+@{
+    ViewData["Title"] = "Bilhetes";
+}
+
+<h1>Bilhetes cadastrados</h1>
+
+<table class="table table-striped">
+    <tr>
+        <th>Número</th>
+        <th>Titular</th>
+        <th>Valor</th>
+        <th>Tipo</th>
+    </tr>
+    @foreach (var b in Model)
+    {
+        <tr>
+            <td>@b.NumeroBilhete</td>
+            <td>@b.NomeTitular</td>
+            <td>@b.Valor</td>
+            <td>@b.TipoBilhete</td>
+        </tr>
+    }
+</table>

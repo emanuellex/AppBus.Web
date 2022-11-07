@@ -1,0 +1,21 @@
+﻿@model List<Avaliacao>
+
+@{
+    ViewData["Title"] = "Avaliação";
+}
+
+<h1>Avaliações</h1>
+
+<table class="table table-striped">
+    <tr>
+        <th>Nota</th>
+        <th>Comentário</th>
+    </tr>
+    @foreach(var a in Model)
+    {
+        <tr>
+            <td>@a.Nota</td>
+            <td>@a.Comentario</td>
+        </tr>
+    }
+</table>

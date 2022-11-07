@@ -27,5 +27,12 @@ namespace AppBus.Web.Controllers
             TempData["msg"] = "Sua avaliação cadastrada com sucesso";
             return RedirectToAction("Cadastrar");
         }
+
+        [HttpGet]
+        public IActionResult Index()
+        {
+            var lista = _context.Avaliacoes.ToList();
+            return View(lista);
+        }
     }
 }
