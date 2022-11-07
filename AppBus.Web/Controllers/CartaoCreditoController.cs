@@ -34,6 +34,13 @@ namespace AppBus.Web.Controllers
             var lista = _context.Cartoes.ToList();
             return View(lista);
         }
+
+        [HttpGet]
+        public IActionResult Editar(int id)
+        {
+            var cartao = _context.Cartoes.Find(id);
+            return View(cartao);
+        }
     }
 }
 

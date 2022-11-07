@@ -1,5 +1,75 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<Onibus>
+
 @{
+    ViewData["Title"] = "Onibus";
 }
+
+<h1>Ônibus</h1>
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Informação</h5>
+        <p class="card-text">O total de ônibus cadastrados no sistema.</p>
+        <p class="card-text">Total de ônibus: @ViewBag.total</p>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>Numero do ônibus</th>
+        <th>Numero da Linha</th>
+        <th>Regiao</th>
+        <th>Tarifa</th>
+        <th>Acessível</th>
+        <th>Status</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.Numero</td>
+            <td>@i.Linha</td>
+            <td>@i.Regiao</td>
+            <td>@i.Tarifa</td>
+            <td>@(i.Acessivel ? "Sim" : "Não")</td>
+            <td>@i.Status</td>
+            <td>
+                <a asp-action="editar" class="btn btn-outline-secondary"
+               asp-route-id="@i.OnibusId">Editar</a>
+                <button onclick="OnibusId.value = @i.OnibusId" type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Excluir
+                </button>
+            </td>
+
+
+        </tr>
+    }
+</table>
+<form class="row row-cols-lg-auto g-3 mb-3 align-items-center">
+    <div class="col-12">
+        <input type="text" name="Pesquisa" class="form-control" placeholder="Digite o número do Ônibus" />
+    </div>
+    <div class="col-12">
+        <button class="btn btn-secondary my-2 my-sm-0">Buscar</button>
+    </div>
+</form>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmar</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Deseja remover?
+            </div>
+            <div class="modal-footer">
+                <form asp-action="remover">
+                    <input name="id" type="hidden" id="OnibusId" />
+                    <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-outline-danger">Sim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

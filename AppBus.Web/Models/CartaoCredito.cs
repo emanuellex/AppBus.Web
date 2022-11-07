@@ -7,7 +7,7 @@ namespace AppBus.Web.Models
     public class CartaoCredito
     {
         [HiddenInput, Column("Id")]
-        public string? CartaoCreditoID { get; set; }
+        public string? CartaoCreditoId { get; set; }
 
 
         [Required, MaxLength(16), Column("NR_Cartao")]

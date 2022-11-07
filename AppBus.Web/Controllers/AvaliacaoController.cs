@@ -34,5 +34,12 @@ namespace AppBus.Web.Controllers
             var lista = _context.Avaliacoes.ToList();
             return View(lista);
         }
+
+        [HttpGet]
+        public IActionResult Editar(int id)
+        {
+            var avaliacao = _context.Avaliacoes.Find(id);
+            return View(avaliacao);
+        }
     }
 }

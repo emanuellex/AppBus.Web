@@ -16,6 +16,13 @@
         <tr>
             <td>@a.Nota</td>
             <td>@a.Comentario</td>
+            <td>
+                <a asp-action="editar" class="btn btn-outline-secondary"
+               asp-route-id="@a.UsuarioId">Editar</a>
+                <button onclick="UsuarioId.value = @a.UsuarioId" type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Excluir
+                </button>
+            </td>
         </tr>
     }
 </table>
