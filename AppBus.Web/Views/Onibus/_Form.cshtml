@@ -1,0 +1,29 @@
+﻿@model Onibus
+
+<div class="mb-3">
+    <label asp-for="Numero"> </label>
+    <input asp-for="Numero" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Linha"> </label>
+    <input asp-for="Linha" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Regiao"> </label>
+    <input asp-for="Regiao" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Tarifa"> </label>
+    <input asp-for="Tarifa" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Acessivel"> </label>
+    <input asp-for="Acessivel" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Status"> </label>
+    <select asp-for="Status" class="form-select"
+            asp-items="@Html.GetEnumSelectList<Status>()">
+        <option>Selecione</option>
+    </select>
+</div>

@@ -1,0 +1,16 @@
+﻿@model Onibus
+
+@{
+    ViewData["Title"] = "Cadastro dos ônibus";
+
+}
+
+<h1>Faça o cadastro de um ônibus</h1>
+
+<form asp-action="cadastrar">
+
+    <partial name="_Form" />
+
+    <button class="btn btn-outline-success">Cadastrar</button>
+
+</form>

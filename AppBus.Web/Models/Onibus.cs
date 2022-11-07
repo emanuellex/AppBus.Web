@@ -10,6 +10,9 @@ namespace AppBus.Web.Models
         [HiddenInput, Column("Id")]
         public int OnibusId { get; set; }
 
+        [Column("NR_NUMERO"),Required]
+        public String? Numero { get; set; }
+
         [MaxLength(4), Required, Column("NR_LINHA")]
         public string? Linha { get; set; }
 

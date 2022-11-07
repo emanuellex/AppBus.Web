@@ -1,5 +1,5 @@
 ﻿using AppBus.Web.Models;
-using Microsoft.AspNetCore.Authentication;
+using AppBus.Web.Persistencia;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppBus.Web.Controllers
