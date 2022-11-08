@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AppBus.Web.Models
 {
+    [Table("Tbl_CARTAO_CREDITO")]
     public class CartaoCredito
     {
         [HiddenInput, Column("Id")]

@@ -5,6 +5,7 @@ using System.Xml.Linq;
 
 namespace AppBus.Web.Models
 {
+    [Table("Tbl_USUARIO")]
     public class Usuario
     {
         [HiddenInput, Column("Id")]

@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AppBus.Web.Models
 {
+    [Table("Tbl_TIPO_ONIBUS")]
     public class TipoOnibus
     {
         [HiddenInput]

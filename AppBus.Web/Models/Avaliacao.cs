@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AppBus.Web.Models
 {
+    [Table("Tbl_AVALIACAO")]
     public class Avaliacao {
 
         [Column("DS_NOTA")]
