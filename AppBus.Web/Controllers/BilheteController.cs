@@ -2,6 +2,7 @@
 using AppBus.Web.Persistencia;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace AppBus.Web.Controllers
 {
@@ -17,9 +18,14 @@ namespace AppBus.Web.Controllers
         [HttpGet]
         public  IActionResult Cadastrar()
         {
+            Usuarios();
+            return View();
+        }
+
+        private void Usuarios()
+        {
             var lista = _context.Usuarios.ToList();
             ViewBag.usuarioss = new SelectList(lista, "UsuarioId", "Email");
-            return View();
         }
 
         [HttpPost]
@@ -36,6 +42,7 @@ namespace AppBus.Web.Controllers
         {
             var lista = _context.Bilhetes
                 .Where(b => b.NomeTitular.Contains(Pesquisa) || Pesquisa == null)
+                 .Include(c => c.Usuario)
                 .ToList();
             ViewBag.total = _context.Bilhetes.Count();
             return View(lista);

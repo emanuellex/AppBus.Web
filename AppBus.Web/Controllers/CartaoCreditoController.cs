@@ -3,6 +3,7 @@ using AppBus.Web.Persistencia;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace AppBus.Web.Controllers
 {
@@ -19,10 +20,16 @@ namespace AppBus.Web.Controllers
         [HttpGet]
         public IActionResult Cadastrar()
         {
-            var lista = _context.Usuarios.ToList();
-            ViewBag.usuarioss = new SelectList(lista, "UsuarioId", "Email");
+            Usuarios();
             return View();
         }
+
+        private void Usuarios()
+        {
+            var lista = _context.Usuarios.ToList();
+            ViewBag.usuarioss = new SelectList(lista, "UsuarioId", "Email");
+        }
+
         [HttpPost]
         public IActionResult Cadastrar(CartaoCredito cartaoCredito)
         {
@@ -36,6 +43,7 @@ namespace AppBus.Web.Controllers
         {
             var lista = _context.Cartoes
                 .Where(c => c.NomeTitular.Contains(Pesquisa) || Pesquisa == null)
+                .Include(c => c.Usuario)
                 .ToList();
             ViewBag.total = _context.Cartoes.Count();
             return View(lista);
@@ -44,6 +52,7 @@ namespace AppBus.Web.Controllers
         [HttpGet]
         public IActionResult Editar(int id)
         {
+            Usuarios();
             var cartao = _context.Cartoes.Find(id);
             return View(cartao);
         }
