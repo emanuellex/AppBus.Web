@@ -41,6 +41,25 @@ namespace AppBus.Web.Controllers
             var bilhete = _context.Bilhetes.Find(id);
             return View(bilhete);
         }
+
+        [HttpPost]
+        public IActionResult Editar (Bilhete bilhete)
+        {
+            _context.Bilhetes.Update(bilhete);
+            _context.SaveChanges();
+            TempData["msg"] = "Bilhete atualizado com sucesso";
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Remover(int id)
+        {
+            var bilhete= _context.Bilhetes.Find(id);
+            _context.Bilhetes.Remove(bilhete);
+            _context.SaveChanges();
+            TempData["msg"] = "Bilhete foi removido do sistema.";
+            return RedirectToAction("Index");
+        }
     }
 
 }

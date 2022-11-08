@@ -41,5 +41,25 @@ namespace AppBus.Web.Controllers
             var avaliacao = _context.Avaliacoes.Find(id);
             return View(avaliacao);
         }
+
+        [HttpPost]
+        public IActionResult Editar (Avaliacao avaliacao)
+        {
+            _context.Avaliacoes.Update(avaliacao);
+            _context.SaveChanges();
+            TempData["msg"] = "Avaliação atualizada com sucesso";
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Remover (int id)
+        {
+            var avaliacao = _context.Avaliacoes.Find (id);
+            _context.Avaliacoes.Remove(avaliacao);
+            _context.SaveChanges();
+            TempData["msg"] = "Avaliação foi removida do sistema.";
+            return RedirectToAction("Index");
+        }
     }
 }

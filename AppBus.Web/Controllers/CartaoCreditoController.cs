@@ -25,7 +25,7 @@ namespace AppBus.Web.Controllers
         {
             _context.Cartoes.Add(cartaoCredito);
             _context.SaveChanges();
-            TempData["msg"] = "Seu cartão foi cadastrado com sucesso!";
+            TempData["msg"] = "Seu cartão crédito foi cadastrado com sucesso!";
             return RedirectToAction("Cadastrar");
         }
         [HttpGet]
@@ -40,6 +40,26 @@ namespace AppBus.Web.Controllers
         {
             var cartao = _context.Cartoes.Find(id);
             return View(cartao);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(CartaoCredito cartaoCredito)
+        {
+            _context.Cartoes.Update(cartao);
+            _context.SaveChanges();
+            TempData["msg"] = "Cartão de crédito atualizado com sucesso";
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Remover(int id)
+        {
+            var cartao = _context.Cartoes.Find(id);
+            _context.Cartoes.Remove(cartao);
+            _context.SaveChanges();
+            TempData["msg"] = "Cartão de crédito foi removido do sistema.";
+            return RedirectToAction("Index");
         }
     }
 }

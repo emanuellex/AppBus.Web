@@ -6,6 +6,9 @@
 
     <h1>Cartões de crédito cadastrados</h1>
 
+<mensagem mensagem="@TempData["msg"]"></mensagem>
+
+
     <table class="table table-striped">
         <tr>
             <th>Número</th>
@@ -34,3 +37,25 @@
             </tr>
         }
     </table>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmar</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Deseja remover?
+            </div>
+            <div class="modal-footer">
+                <form asp-action="remover">
+                    <input name="id" type="hidden" id="CartaoCreditoId" />
+                    <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-outline-danger">Sim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
