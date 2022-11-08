@@ -8,7 +8,7 @@ namespace AppBus.Web.Models
     public class Bilhete
     {
         [HiddenInput, Column("Id")]
-        public string? BilheteID { get; set; }
+        public string? BilheteId { get; set; }
 
 
         [Required, MaxLength(9), Column("NR_BILHETE"), Display(Name = "Número do Bilhete")]
