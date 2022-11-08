@@ -1,6 +1,7 @@
 ﻿using AppBus.Web.Models;
 using AppBus.Web.Persistencia;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace AppBus.Web.Controllers
 {
@@ -16,6 +17,8 @@ namespace AppBus.Web.Controllers
         [HttpGet]
         public  IActionResult Cadastrar()
         {
+            var lista = _context.Usuarios.ToList();
+            ViewBag.usuarioss = new SelectList(lista, "UsuarioId", "Email");
             return View();
         }
 

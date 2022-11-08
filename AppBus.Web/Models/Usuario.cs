@@ -26,7 +26,7 @@ namespace AppBus.Web.Models
         public string? Cpf { get; set; }
 
         [Column("DT_DATA_NASCIMENTO"), Required, Display(Name = "Data de Nascimento")]
-        public DateOnly DataNascimento { get; set; }
+        public DateTime DataNascimento { get; set; }
 
 
         //1:N

@@ -27,3 +27,11 @@
     <label asp-for="Documento"> </label>
     <input asp-for="Documento" class="form-control" />
 </div>
+
+<div class="mb-3">
+    <label asp-for="Usuario"></label>
+    <select class="form-select" asp-for="UsuarioId"
+         asp-items="@ViewBag.usuarioss">
+        <option>Selecione</option>
+    </select>
+</div>

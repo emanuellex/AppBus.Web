@@ -25,7 +25,7 @@ namespace AppBus.Web.Models
         public string? CVV { get; set; }
 
         [MaxLength(3), Display(Name = "Validade"), Required, Column("DT_VALIDADE")]
-        public DateOnly Validade { get; set; }
+        public DateTime Validade { get; set; }
 
         [Required, Column("DS_Bandeira")]
         public Bandeira Bandeira { get; set; }

@@ -17,6 +17,13 @@
     <input asp-for="NomeTitular" class="form-control" />
 </div>
 <div class="mb-3">
+    <label asp-for="Usuario"></label>
+    <select class="form-select" asp-for="UsuarioId"
+            asp-items="@ViewBag.usuarioss">
+        <option>Selecione</option>
+    </select>
+</div>
+<div class="mb-3">
     <label asp-for="Valor"> </label>
     <input asp-for="Valor" class="form-control" />
 </div>
