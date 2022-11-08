@@ -18,7 +18,7 @@ namespace AppBus.Web.Controllers
         public IActionResult Index(String Pesquisa)
         {
             var lista = _context.Usuarios
-                .Where(u => u.Email.Contains(Pesquisa) || Pesquisa == null)
+                .Where(i => i.Email.Contains(Pesquisa) || Pesquisa == null)
                 .ToList();
 
             return View(lista);
@@ -45,7 +45,7 @@ namespace AppBus.Web.Controllers
         public IActionResult Editar(int id)
         {
             var usuario = _context.Usuarios
-                .Where(u => u.UsuarioId == id)
+                .Where(i => i.UsuarioId == id)
                 .FirstOrDefault();
 
             return View(usuario);

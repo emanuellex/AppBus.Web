@@ -1,6 +1,7 @@
 ﻿using AppBus.Web.Models;
 using AppBus.Web.Persistencia;
 using Microsoft.AspNetCore.Mvc;
+using System.Xml.Schema;
 
 namespace AppBus.Web.Controllers
 {
@@ -19,6 +20,17 @@ namespace AppBus.Web.Controllers
             return View();
         }
 
+
+        [HttpGet]
+        public IActionResult Index()
+        {
+            var lista = _context.Avaliacoes.ToList();
+            return View(lista);
+        }
+
+
+
+
         [HttpPost]
         public IActionResult Cadastrar (Avaliacao avaliacao)
         {
@@ -28,12 +40,7 @@ namespace AppBus.Web.Controllers
             return RedirectToAction("Cadastrar");
         }
 
-        [HttpGet]
-        public IActionResult Index()
-        {
-            var lista = _context.Avaliacoes.ToList();
-            return View(lista);
-        }
+      
 
         [HttpGet]
         public IActionResult Editar(int id)

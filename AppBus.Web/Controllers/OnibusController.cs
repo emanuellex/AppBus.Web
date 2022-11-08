@@ -49,7 +49,7 @@ namespace AppBus.Web.Controllers
         public IActionResult Index(String Pesquisa)
         {
             var lista = _context.Onibuss
-                .Where(o => o.Numero.Contains(Pesquisa) || Pesquisa == null)
+                .Where(i => i.Numero.Contains(Pesquisa) || Pesquisa == null)
                 .ToList();
             ViewBag.total = _context.Onibuss.Count();
             return View(lista);

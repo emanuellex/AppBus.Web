@@ -29,9 +29,11 @@ namespace AppBus.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string Pesquisa)
         {
-            var lista = _context.Bilhetes.ToList();
+            var lista = _context.Bilhetes
+                .Where(b => b.NomeTitular.Contains(Pesquisa))
+                .ToList();
             return View(lista);
         }
 

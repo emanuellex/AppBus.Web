@@ -29,9 +29,11 @@ namespace AppBus.Web.Controllers
             return RedirectToAction("Cadastrar");
         }
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string Pesquisa)
         {
-            var lista = _context.Cartoes.ToList();
+            var lista = _context.Cartoes
+                .Where(c => c.NomeTitular.Contains(Pesquisa))
+                .ToList();
             return View(lista);
         }
 
@@ -45,7 +47,7 @@ namespace AppBus.Web.Controllers
         [HttpPost]
         public IActionResult Editar(CartaoCredito cartaoCredito)
         {
-            _context.Cartoes.Update(cartao);
+            _context.Cartoes.Update(cartaoCredito);
             _context.SaveChanges();
             TempData["msg"] = "Cartão de crédito atualizado com sucesso";
 
