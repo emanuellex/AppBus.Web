@@ -1,4 +1,5 @@
-﻿@model List<Usuario>
+﻿
+@model List<Usuario>
 
 @{
     ViewData["Title"] = "Usuario";
@@ -8,6 +9,13 @@
 
 <mensagem mensagem="@TempData["msg"]"></mensagem>
 
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Total</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Número total de usuários que estão cadastrados no sistema.</h6>
+        <p class="card-text">Usuários: @ViewBag.total</p>
+    </div>
+</div>
 
 <table class="table table-striped">
     <tr>

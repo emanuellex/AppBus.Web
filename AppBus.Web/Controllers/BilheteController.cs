@@ -32,8 +32,9 @@ namespace AppBus.Web.Controllers
         public IActionResult Index(string Pesquisa)
         {
             var lista = _context.Bilhetes
-                .Where(b => b.NomeTitular.Contains(Pesquisa))
+                .Where(b => b.NomeTitular.Contains(Pesquisa) || Pesquisa == null)
                 .ToList();
+            ViewBag.total = _context.Bilhetes.Count();
             return View(lista);
         }
 

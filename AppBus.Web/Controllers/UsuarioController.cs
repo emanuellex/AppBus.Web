@@ -20,7 +20,7 @@ namespace AppBus.Web.Controllers
             var lista = _context.Usuarios
                 .Where(i => i.Email.Contains(Pesquisa) || Pesquisa == null)
                 .ToList();
-
+            ViewBag.total = _context.Usuarios.Count();
             return View(lista);
 
         }
