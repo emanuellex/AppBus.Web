@@ -1,6 +1,7 @@
 ﻿using AppBus.Web.Models;
 using AppBus.Web.Persistencia;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AppBus.Web.Controllers
 {
@@ -30,7 +31,10 @@ namespace AppBus.Web.Controllers
         [HttpGet]
         public IActionResult Editar(int id)
         {
-            var onibus = _context.Onibuss.Find(id);
+            var onibus = _context.Onibuss
+                .Include(i => i.TipoOnibus)
+                .Where(i => i.OnibusId == id)
+                .FirstOrDefault();
 
             return View(onibus);
 
@@ -50,6 +54,7 @@ namespace AppBus.Web.Controllers
         {
             var lista = _context.Onibuss
                 .Where(i => i.Numero.Contains(Pesquisa) || Pesquisa == null)
+                .Include(i => i.TipoOnibus)
                 .ToList();
             ViewBag.total = _context.Onibuss.Count();
             return View(lista);

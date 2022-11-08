@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
 
 namespace AppBus.Web.Models
 {
@@ -29,6 +28,10 @@ namespace AppBus.Web.Models
         [Column("FL_ACESSIVEL")]
         public bool Acessivel  { get; set; }
 
+        //1:1
+        public TipoOnibus TipoOnibus { get; set; }
+
+        public int TipoOnibusId  { get; set; }    //FK
 
         //N:M
         public IList<Avaliacao> Avaliacao { get; set; }

@@ -30,6 +30,8 @@ namespace AppBus.Web.Models
         [Required, Column("DS_Bandeira")]
         public Bandeira Bandeira { get; set; }
 
+        
+        //N:1
         public Usuario Usuario { get; set; }
         public int UsuarioId { get; set; }
 

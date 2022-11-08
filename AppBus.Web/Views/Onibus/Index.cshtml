@@ -33,6 +33,8 @@
         <th>Tarifa</th>
         <th>Acessível</th>
         <th>Status</th>
+        <th>Tipo</th>
+        <th></th>
     </tr>
     @foreach (var i in Model)
     {
@@ -43,6 +45,7 @@
             <td>@i.Tarifa</td>
             <td>@(i.Acessivel ? "Sim" : "Não")</td>
             <td>@i.Status</td>
+            <td>@i.TipoOnibus?.Tipo</td>
             <td>
                 <a asp-action="editar" class="btn btn-outline-secondary"
                asp-route-id="@i.OnibusId">Editar</a>

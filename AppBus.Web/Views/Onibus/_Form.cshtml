@@ -27,3 +27,10 @@
         <option>Selecione</option>
     </select>
 </div>
+<input asp-for="TipoOnibus.TipoOnibusId" />
+<div class="mb-3">
+    <label asp-for="TipoOnibus.Tipo"></label>
+    <select asp-for="TipoOnibus.Tipo" class="form-select" asp-items="@Html.GetEnumSelectList<Tipo>()">
+      <option>Selecione</option>
+  </select>
+</div>

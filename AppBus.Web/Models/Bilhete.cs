@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
 
 namespace AppBus.Web.Models
 {
@@ -24,6 +23,7 @@ namespace AppBus.Web.Models
         [Column("DS_TIPO_BILHETE"), Display(Name = "Tipo")]
         public TipoBilhete TipoBilhete { get; set; }
 
+         //N:1
         public Usuario Usuario { get; set; }
         public int UsuarioId { get; set; }
     }
