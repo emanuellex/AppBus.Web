@@ -3,6 +3,7 @@ using AppBus.Web.Persistencia;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace AppBus.Web.Controllers
 {
@@ -70,6 +71,28 @@ namespace AppBus.Web.Controllers
             _context.SaveChanges();
             TempData["msg"] = "Usuário removido do sistema.";
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Detalhar (int id)
+        {
+            var onibus = _context.Onibuss.ToList();
+            ViewBag.onibus = new SelectList(onibus, "OnibusId", "Numero");
+            var usuario = _context.Usuarios
+                .Include(i => i.Bilhetes)
+                .Include(i => i.Cartoes)
+                .Where(i => i.UsuarioId == id)
+                .FirstOrDefault();
+            return View(usuario);
+        }
+
+        [HttpPost]
+        public IActionResult adicionar(Avaliacao avaliacao)
+        {
+            _context.Avaliacoes.Add(avaliacao);
+            _context.SaveChanges();
+            TempData["msg"] = "Ônibus adicionado ao usuário";
+            return RedirectToAction("Detalhar", new {id = avaliacao.UsuarioId});
         }
     }
 }

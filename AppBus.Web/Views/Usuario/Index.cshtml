@@ -41,6 +41,8 @@
                 <button onclick="UsuarioId.value = @i.UsuarioId" type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Excluir
                 </button>
+                <a asp-action="detalhar" class="btn btn-outline-secondary"
+               asp-route-id="@i.UsuarioId">Detalhes</a>
             </td>
 
 

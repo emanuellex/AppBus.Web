@@ -25,7 +25,7 @@ namespace AppBus.Web.Controllers
         private void Usuarios()
         {
             var lista = _context.Usuarios.ToList();
-            ViewBag.usuarioss = new SelectList(lista, "UsuarioId", "Email");
+            ViewBag.usuariosx = new SelectList(lista, "UsuarioId", "Email");
         }
 
         [HttpPost]
@@ -42,7 +42,7 @@ namespace AppBus.Web.Controllers
         {
             var lista = _context.Bilhetes
                 .Where(b => b.NomeTitular.Contains(Pesquisa) || Pesquisa == null)
-                 .Include(c => c.Usuario)
+                 .Include(b => b.Usuario)
                 .ToList();
             ViewBag.total = _context.Bilhetes.Count();
             return View(lista);
@@ -51,6 +51,7 @@ namespace AppBus.Web.Controllers
         [HttpGet]
         public IActionResult Editar(int id)
         {
+            Usuarios();
             var bilhete = _context.Bilhetes.Find(id);
             return View(bilhete);
         }

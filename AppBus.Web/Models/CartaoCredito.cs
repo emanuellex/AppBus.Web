@@ -8,7 +8,7 @@ namespace AppBus.Web.Models
     public class CartaoCredito
     {
         [HiddenInput, Column("Id")]
-        public string? CartaoCreditoId { get; set; }
+        public int CartaoCreditoId { get; set; }
 
 
         [Required, MaxLength(16), Column("NR_Cartao")]
@@ -24,7 +24,7 @@ namespace AppBus.Web.Models
         [MaxLength(3), Display(Name = "CVV"), Required, Column("NR_CVV")]
         public string? CVV { get; set; }
 
-        [MaxLength(3), Display(Name = "Validade"), Required, Column("DT_VALIDADE")]
+        [ Display(Name = "Validade"), Required, Column("DT_VALIDADE")]
         public DateTime Validade { get; set; }
 
         [Required, Column("DS_Bandeira")]

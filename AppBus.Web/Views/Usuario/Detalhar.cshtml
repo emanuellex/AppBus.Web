@@ -1,0 +1,30 @@
+﻿@model Usuario
+
+@{
+    ViewData["Title"] = "Detalhar";
+}
+
+
+<div class="card" style="width: 18rem;">
+    <div class="card-header">
+        Usuário: @Model.Email
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Bilhete: @Model.Bilhetes</li>
+        <li class="list-group-item">Cartão: @Model.Cartoes</li>
+    </ul>
+</div>
+
+<h2>Ônibus</h2>
+
+<form asp-action="adicionar" class="row row-cols-lg-auto g-3 mb-3 align-items-center">
+    <input type="hidden" name="UsuarioId" value="@Model.UsuarioId" />
+    <div class="col-12">
+        <select name="OnibusId" class="form-select" asp-items="@ViewBag.onibus">
+            <option>Selecione</option>
+        </select>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-secondary my-2 my-sm-0">Adicionar</button>
+    </div>
+</form>
