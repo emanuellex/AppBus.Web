@@ -5,17 +5,10 @@
 }
 
 
-<div class="card" style="width: 18rem;">
-    <div class="card-header">
-        Usuário: @Model.Email
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">Bilhete: @Model.Bilhetes</li>
-        <li class="list-group-item">Cartão: @Model.Cartoes</li>
-    </ul>
-</div>
+<h1>Usuário: @Model.Email</h1>
 
-<h2>Ônibus</h2>
+
+<h4>Ônibus</h4>
 
 <form asp-action="adicionar" class="row row-cols-lg-auto g-3 mb-3 align-items-center">
     <input type="hidden" name="UsuarioId" value="@Model.UsuarioId" />
@@ -28,3 +21,22 @@
         <button class="btn btn-secondary my-2 my-sm-0">Adicionar</button>
     </div>
 </form>
+
+<mensagem mensagem="@TempData["msg"]"></mensagem>
+
+<h3>Lista de Ônibus do Usuário</h3>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>Número</th>
+        <th>Linha</th>
+    </tr>
+    @foreach (var i in ViewBag.listaon)
+    {
+        <tr>
+            <td>@i.OnibusNumero</td>
+            <td>@i.Linhatd>
+        </tr>
+    }
+</table>

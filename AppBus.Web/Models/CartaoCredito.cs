@@ -11,10 +11,10 @@ namespace AppBus.Web.Models
         public int CartaoCreditoId { get; set; }
 
 
-        [Required, MaxLength(16), Column("NR_Cartao")]
+        [Required, Display(Name = "Número"), MaxLength(16), Column("NR_Cartao")]
         public string? NumeroCartao { get; set; }
 
-        [Required,Column("NM_TITULAR")]
+        [Required, Display(Name = "Titular"), Column("NM_TITULAR")]
         public string? NomeTitular { get; set; }
 
 

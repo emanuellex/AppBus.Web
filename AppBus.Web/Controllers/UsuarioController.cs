@@ -1,6 +1,5 @@
 ﻿using AppBus.Web.Models;
 using AppBus.Web.Persistencia;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -76,11 +75,18 @@ namespace AppBus.Web.Controllers
         [HttpGet]
         public IActionResult Detalhar (int id)
         {
+            var av = _context.Avaliacoes
+            .Where(i => i.UsuarioId == id)
+            .Select(i =>i.Onibus)
+            .ToList();
+            ViewBag.listaon = av;
+
             var onibus = _context.Onibuss.ToList();
-            ViewBag.onibus = new SelectList(onibus, "OnibusId", "Numero");
+
+            var listf = onibus.Where(o => !av.Any(x =>x.OnibusId == o.OnibusId));
+
+            ViewBag.onibus = new SelectList(listf, "OnibusId", "OnibusNumero");
             var usuario = _context.Usuarios
-                .Include(i => i.Bilhetes)
-                .Include(i => i.Cartoes)
                 .Where(i => i.UsuarioId == id)
                 .FirstOrDefault();
             return View(usuario);

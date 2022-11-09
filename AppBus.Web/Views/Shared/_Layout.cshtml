@@ -27,10 +27,50 @@
                                 Usuário
                             </a>
                             <ul class="dropdown-menu">          
-                                <li><a class="dropdown-item" asp-controller="Usuario" asp-action="Index">Cadastra-se</a></li>
-                                <li><a class="dropdown-item" asp-controller="Usuario" asp-action="Cadastrar">Lista de Usuários</a></li>
+                                <li><a class="dropdown-item" asp-controller="Usuario" asp-action="Cadastrar">Cadastra-se</a></li>
+                                <li><a class="dropdown-item" asp-controller="Usuario" asp-action="Index">Lista de Usuários</a></li>
                             </ul>
                         </li>
+                   
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Ônibus
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" asp-controller="Onibus" asp-action="Cadastrar">Cadastrar um ônibus</a></li>
+                            <li><a class="dropdown-item" asp-controller="Onibus" asp-action="Index">Lista de ônibus</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Cartão de Crédito
+                        </a>
+                        <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="CartaoCredito" asp-action="Cadastrar">Cadastrar um cartão</a></li>
+                                <li><a class="dropdown-item" asp-controller="CartaoCredito" asp-action="Index">Lista de cartões</a></li>
+                        </ul>
+                        
+                    </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Bilhete
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="Bilhete" asp-action="Cadastrar">Cadastrar um bilhte</a></li>
+                                <li><a class="dropdown-item" asp-controller="Bilhete" asp-action="Index">Lista de bilhetes</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Avaliação
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="Avaliacao" asp-action="Cadastrar">Cadastrar uma avaliação</a></li>
+                                <li><a class="dropdown-item" asp-controller="Avaliacao" asp-action="Index">Lista de avaliações</a></li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </div>
             </div>

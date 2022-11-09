@@ -11,8 +11,8 @@ namespace AppBus.Web.Models
         [Column("DS_NOTA")]
         public Nota Nota  { get; set; }
 
-       [Required, MaxLength(500), Column("DC_COMENTARIO")]
-        public string? Comentario { get; set; }
+       [MaxLength(500), Column("DC_COMENTARIO")]
+        public string Comentario { get; set; }
 
         public Usuario Usuario { get; set; }
 
