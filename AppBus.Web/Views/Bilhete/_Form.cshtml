@@ -4,7 +4,7 @@
 <div class="mb-3">
       <label asp-for="TipoBilhete"></label>
         <select asp-for="TipoBilhete" class="form-select"
-            asp-items="@Html.GetEnumSelectList<Nota>()">
+            asp-items="@Html.GetEnumSelectList<TipoBilhete>()">
         <option>Selecione</option>
     </select>
     </div>
