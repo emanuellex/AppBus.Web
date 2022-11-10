@@ -8,7 +8,7 @@ namespace AppBus.Web.Controllers
 {
     public class BilheteController : Controller
     {
-        public BusContext _context { get; set; }
+        private BusContext _context;
 
         public BilheteController(BusContext context)
         {
