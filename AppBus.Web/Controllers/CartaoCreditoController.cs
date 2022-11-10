@@ -10,7 +10,7 @@ namespace AppBus.Web.Controllers
     public class CartaoCreditoController : Controller
     {
 
-        public BusContext _context;
+        private BusContext _context;
 
         public CartaoCreditoController(BusContext context)
         {
