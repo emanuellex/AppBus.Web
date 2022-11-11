@@ -93,12 +93,12 @@ namespace AppBus.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult adicionar(UsuBus avaliacao)
+        public IActionResult adicionar(UsuBus usu)
         {
-            _context.UsuBuses.Add(avaliacao);
+            _context.UsuBuses.Add(usu);
             _context.SaveChanges();
             TempData["msg"] = "Ônibus adicionado ao usuário";
-            return RedirectToAction("Detalhar", new {id = avaliacao.UsuarioId});
+            return RedirectToAction("Detalhar", new {id = usu.UsuarioId});
         }
     }
 }
