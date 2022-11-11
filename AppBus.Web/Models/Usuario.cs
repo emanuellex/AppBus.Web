@@ -35,6 +35,6 @@ namespace AppBus.Web.Models
         public List<Bilhete>? Bilhetes { get; set; }
 
         //N:M
-        public IList<Avaliacao> Avaliacao { get; set; }
+        public IList<UsuBus> Avaliacao { get; set; }
     }
 }

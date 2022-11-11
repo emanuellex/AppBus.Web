@@ -7,11 +7,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Avaliacao\**" />
+    <Content Remove="Views\Avaliacao\**" />
+    <EmbeddedResource Remove="Views\Avaliacao\**" />
+    <None Remove="Views\Avaliacao\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\AvaliacaoController.cs" />
+    <Compile Remove="Models\USUARIOBUS.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

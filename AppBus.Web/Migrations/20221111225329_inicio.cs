@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AppBus.Web.Migrations
 {
-    public partial class INICIO : Migration
+    public partial class inicio : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -114,35 +114,28 @@ namespace AppBus.Web.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Tbl_AVALIACAO",
+                name: "UsuBuses",
                 columns: table => new
                 {
                     UsuarioId = table.Column<int>(type: "int", nullable: false),
-                    OnibusId = table.Column<int>(type: "int", nullable: false),
-                    DS_NOTA = table.Column<int>(type: "int", nullable: false),
-                    DC_COMENTARIO = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false)
+                    OnibusId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Tbl_AVALIACAO", x => new { x.UsuarioId, x.OnibusId });
+                    table.PrimaryKey("PK_UsuBuses", x => new { x.UsuarioId, x.OnibusId });
                     table.ForeignKey(
-                        name: "FK_Tbl_AVALIACAO_Tbl_ONIBUS_OnibusId",
+                        name: "FK_UsuBuses_Tbl_ONIBUS_OnibusId",
                         column: x => x.OnibusId,
                         principalTable: "Tbl_ONIBUS",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Tbl_AVALIACAO_Tbl_USUARIO_UsuarioId",
+                        name: "FK_UsuBuses_Tbl_USUARIO_UsuarioId",
                         column: x => x.UsuarioId,
                         principalTable: "Tbl_USUARIO",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Tbl_AVALIACAO_OnibusId",
-                table: "Tbl_AVALIACAO",
-                column: "OnibusId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tbl_BILHETE_UsuarioId",
@@ -158,18 +151,23 @@ namespace AppBus.Web.Migrations
                 name: "IX_Tbl_ONIBUS_TipoOnibusId",
                 table: "Tbl_ONIBUS",
                 column: "TipoOnibusId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UsuBuses_OnibusId",
+                table: "UsuBuses",
+                column: "OnibusId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Tbl_AVALIACAO");
-
-            migrationBuilder.DropTable(
                 name: "Tbl_BILHETE");
 
             migrationBuilder.DropTable(
                 name: "Tbl_CARTAO_CREDITO");
+
+            migrationBuilder.DropTable(
+                name: "UsuBuses");
 
             migrationBuilder.DropTable(
                 name: "Tbl_ONIBUS");

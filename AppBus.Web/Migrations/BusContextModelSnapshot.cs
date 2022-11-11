@@ -22,31 +22,6 @@ namespace AppBus.Web.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("AppBus.Web.Models.Avaliacao", b =>
-                {
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OnibusId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Comentario")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
-                        .HasColumnName("DC_COMENTARIO");
-
-                    b.Property<int>("Nota")
-                        .HasColumnType("int")
-                        .HasColumnName("DS_NOTA");
-
-                    b.HasKey("UsuarioId", "OnibusId");
-
-                    b.HasIndex("OnibusId");
-
-                    b.ToTable("Tbl_AVALIACAO");
-                });
-
             modelBuilder.Entity("AppBus.Web.Models.Bilhete", b =>
                 {
                     b.Property<int>("BilheteId")
@@ -245,23 +220,19 @@ namespace AppBus.Web.Migrations
                     b.ToTable("Tbl_USUARIO");
                 });
 
-            modelBuilder.Entity("AppBus.Web.Models.Avaliacao", b =>
+            modelBuilder.Entity("AppBus.Web.Models.UsuBus", b =>
                 {
-                    b.HasOne("AppBus.Web.Models.Onibus", "Onibus")
-                        .WithMany("Avaliacao")
-                        .HasForeignKey("OnibusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
 
-                    b.HasOne("AppBus.Web.Models.Usuario", "Usuario")
-                        .WithMany("Avaliacao")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("OnibusId")
+                        .HasColumnType("int");
 
-                    b.Navigation("Onibus");
+                    b.HasKey("UsuarioId", "OnibusId");
 
-                    b.Navigation("Usuario");
+                    b.HasIndex("OnibusId");
+
+                    b.ToTable("UsuBuses");
                 });
 
             modelBuilder.Entity("AppBus.Web.Models.Bilhete", b =>
@@ -295,6 +266,25 @@ namespace AppBus.Web.Migrations
                         .IsRequired();
 
                     b.Navigation("TipoOnibus");
+                });
+
+            modelBuilder.Entity("AppBus.Web.Models.UsuBus", b =>
+                {
+                    b.HasOne("AppBus.Web.Models.Onibus", "Onibus")
+                        .WithMany("Avaliacao")
+                        .HasForeignKey("OnibusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AppBus.Web.Models.Usuario", "Usuario")
+                        .WithMany("Avaliacao")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Onibus");
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("AppBus.Web.Models.Onibus", b =>

@@ -34,7 +34,7 @@ namespace AppBus.Web.Models
         public int TipoOnibusId  { get; set; }    //FK
 
         //N:M
-        public IList<Avaliacao> Avaliacao { get; set; }
+        public IList<UsuBus> Avaliacao { get; set; }
 
     }
 

@@ -75,7 +75,7 @@ namespace AppBus.Web.Controllers
         [HttpGet]
         public IActionResult Detalhar (int id)
         {
-            var av = _context.Avaliacoes
+            var av = _context.UsuBuses
             .Where(i => i.UsuarioId == id)
             .Select(i =>i.Onibus)
             .ToList();
@@ -93,9 +93,9 @@ namespace AppBus.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult adicionar(Avaliacao avaliacao)
+        public IActionResult adicionar(UsuBus avaliacao)
         {
-            _context.Avaliacoes.Add(avaliacao);
+            _context.UsuBuses.Add(avaliacao);
             _context.SaveChanges();
             TempData["msg"] = "Ônibus adicionado ao usuário";
             return RedirectToAction("Detalhar", new {id = avaliacao.UsuarioId});
